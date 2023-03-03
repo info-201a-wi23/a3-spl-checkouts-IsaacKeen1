@@ -25,7 +25,7 @@ library_checkout_line_chart2 <- ggplot() +
   geom_line(data = horizon_checkouts_over_time, aes(x = timeline, y = total_checkout, color = "Horizon")) +
   geom_line(data = overdrive_checkouts_over_time, aes(x = timeline, y = total_checkout, color = "OverDrive")) +
   labs(
-    title = "Horizon vs OverDrive checkouts over time",
+    title = "Checkouts Using Horizon vs OverDrive Over Time",
     subtitle = "Source: 2017-2023-10-Checkouts-SPL-Data.csv",
     caption = "Data starts in year of 2017 and goes until 2023",
     x = "Year",
