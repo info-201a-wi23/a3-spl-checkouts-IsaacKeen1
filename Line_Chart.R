@@ -30,7 +30,7 @@ library_checkout_line_chart <- ggplot() +
   geom_line(data = ebook_checkouts_over_time, aes(x = timeline, y = total_checkout, color = "Ebooks")) +
   geom_line(data = physical_checkouts_over_time, aes(x = timeline, y = total_checkout, color = "Physical Books")) +
   labs(
-    title = "Books vs Ebooks checkouts over time",
+    title = "Books vs Ebooks Checkouts Over Time",
     subtitle = "Source: 2017-2023-10-Checkouts-SPL-Data.csv",
     caption = "Data starts in year of 2017 and goes until 2023",
     x = "Year",
