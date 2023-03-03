@@ -1,6 +1,6 @@
 libraryData <- read.csv("/Users/isaackeen/Documents/Data/2017-2023-10-Checkouts-SPL-Data.csv")
-library("ggplot2")
-library("dplyr")
+invisible(library("ggplot2"))
+invisible(library("dplyr"))
 
 
 libraryData <- libraryData %>%
