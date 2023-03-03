@@ -5,25 +5,30 @@ output: html_document
 
 ### Introduction
 
-The dataset we are analyzing is the library checkout data from the Seattle Public Library (SPL) from 2017 to 2023. The dataset contains information about the items that have been checked out from the library, including the checkout date, checkout type (e.g., OverDrive, Hoopla), and material type (e.g., book, audiobook). Our goal is to analyze the data to identify any trends in the type of materials being checked out and the checkout types that are most popular. We are primarily interested in analyzing the trends in the checkout types (OverDrive, Hoopla) and the material types (books, audiobooks) over time. We want to identify any changes in the popularity of these checkout types or materials over the years. We are also interested in analyzing the total number of checkouts for each checkout type and material type to determine which items are the most popular among library users.
+The dataset that we are analyzing is the library checkout data from the Seattle Public Library (SPL) between 2017 and 2023. The dataset includes information on the items that have been checked out from the library, such as the checkout date, checkout type (e.g., OverDrive, Hoopla), and material type (e.g., book, audiobook). Our goal is to analyze the data to identify any trends in the types of materials being checked out and the checkout types that are most popular. We are primarily interested in examining the trends in checkout types (OverDrive, Hoopla) and material types (books, audiobooks) over time. We want to identify any changes in the popularity of these checkout types or materials over the years.<br>
+
+We are also interested in analyzing the total number of checkouts for each checkout type and material type to determine which items are the most popular among library users. Additionally, we have implemented a bar chart to examine the popularity of the fiction genre. We stacked the genre against all the other genres to see how it performed each year in comparison to the other genres, and the results may surprise you. Overall, we have used this dataset to create three different charts that show three comparisons over time, with two of them focusing on digital vs physical materials, which is considered the main focus of this project.
 
 ### Summary Information
+<br>
+Using my DPLYR skills and my summary.R file I was able to find 5 values that we relevant and intresting to me. The average number of checkouts an item received between 2017 and 2023 was about 23.5. A book that I was intreseted in was The Great Gatsby, and through my summary.R calcuations I was able to find out that the least popular month for the book was July, and the most popular was January. I think this was atributed to more people reading in the winter times as they are inside more often and in the summer they want to spend more time outside. However for Ebooks(in general) it was a little different as I found out that just like the Great Gatsby, January was the most popular month for ebooks being checked out, however unlike The Great Gatsby and also my prediction of a summer month being the least popular it was Feburary, that could be attributed to it having the least amount of days. Another thing that has changed was the amount of physical prints checked out from 2017 and 2022, I picked both of these dates because covid wasn't a factor and there is a good amount of time difference, in 2022 there was 603271 less physical checkouts than in 2017. This can be attributed to the digitization of the world. My final calculation was to find out which material had the most checkouts from 2017-2023, despite the digilization of the world the most popular material was a physical book which was checked out 6397967 times from 2017 to 2023 at the seattle library. 
+<br>
+```{r, echo=FALSE, message = FALSE}
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+source("summary.r")
+cat(paste("Average Checkouts Per item:", overall_avg_checkouts, "\n"))
+cat(paste("Most Popular Month For Checkouts For The Great Gatsby:", most_popular_month, "\n"))
+cat(paste("Least Popular Month For Checkouts For The Great Gatsby:", least_popular_month, "\n"))
+cat(paste("Most Popular Month For Checkouts For Ebooks:", most_popular_ebook_month, "\n"))
+cat(paste("Least Popular Month For Checkouts For Ebooks:", least_popular_ebook_month, "\n"))
+```
 
-These will likely be calculated using your DPLYR skills, answering questions such as:
 
-- **What is the average number of checkouts for each item?**
-- **What is the month or year with the most/least checkouts for a book that you're interested in?**
-- **What is the month or year with the most/least checkouts for ebooks?**
-- **How has the number of print book checkouts changed over time?**
-
-Feel free to calculate and report values that you find relevant.
 
 ### The Dataset
 
-- **Who collected/published the data?**
-  The Seattle Public Library collected and published the dataset used in this project
+- **Who collected/published the data?**<br>
+  The Seattle Public Library collected and published the dataset used in this project.
 - **What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?**<br>
   The paramaeters are the following:<br>
     UsageClass: This determines if the data entry for a checkout was a physical or digital item<br>
@@ -37,28 +42,46 @@ Feel free to calculate and report values that you find relevant.
     Subjects: Genre of the item<br>
     Publisher: Publisher of the item<br>
     PublicationYear: Year the item was published<br>
-- **How was the data collected or generated?**  
-  
-- **Why was the data collected?**  
-  To keep track of a monthly count of Seattle Public Library checkouts by title for physical and electronic     items
-- **What, if any, ethical questions do you need to consider when working with this data?**  
+- **How was the data collected or generated?**<br>
+  The data was collected from the circulation system of Seattle Public Library's locations. The circulation   system automatically captures the checkout transactions of library users.
+- **Why was the data collected?**<br>
+  The purpose of collecting this data was to keep track of the monthly count of Seattle Public Library        checkouts by title for physical and electronic items. This information is useful for managing the           library's inventory and resources.
+- **What, if any, ethical questions do you need to consider when working with this data?**<br>
+  When working with this data, we need to consider ethical questions related to user privacy. Although the    dataset does not contain any personally identifiable information, it does contain information on users'     borrowing habits. As such, researchers must ensure that the data is anonymized and that they are not        violating any ethical or legal standards. Additionally, it is essential to ensure that the data is being     used for appropriate purposes and not misused in any way.
+- **What are possible limitations or problems with this data?(at least 200 words)**<br>
+  The dataset does not provide any information on the context in which the items were checked out, such as whether they were checked out for personal or academic use, or if they were part of a larger research project. This could limit the scope of any analyses conducted using the dataset. Additionally, the dataset does not provide any information on the availability of items or their popularity within the library system. This could impact the interpretation of the number of checkouts for certain items. Another potential limitation is that the dataset only includes the title and creator of the item, rather than more detailed metadata such as ISBN or genre codes. This could make it more difficult to conduct specific analyses, such as determining the most popular genres or identifying trends in the types of items borrowed. Finally, it is important to consider ethical issues when working with this dataset. While the dataset is publicly available, it contains personal information such as titles borrowed by individual borrowers. Researchers must take care to maintain the privacy and confidentiality of borrowers when using this dataset, and follow all relevant ethical guidelines and regulations. Overall, while this dataset provides a valuable source of information about Seattle Public Library checkouts, it is important to keep these potential limitations in mind when analyzing and interpreting the data.
 
-- **What are possible limitations or problems with this data?(at least 200 words)**
-  There are many limiations/problems with this dataset. 
+
+
+
+
 
 ### First Trends Over Time Chart
 
-``````{r, echo = FALSE, warning = FALSE, code = readLines("Line_Chart.R")}
+```{r, echo=FALSE, message = FALSE}
+source("Line_Chart.r")
+library_checkout_line_chart
 ```
-
+<br>
+  **Description**<br>
+    The reason why I included the line chart for the books vs. ebooks checked out is that it helps to visualize the trend in borrowing behavior over time. By plotting the number of checkouts for books and ebooks over the years, we can identify patterns and trends in borrowing behavior that might be useful for the library to consider when making decisions about future acquisitions. In examining the line chart, we can see that there has been a steady increase in the number of ebook checkouts over time, while the number of physical book checkouts has spiked extremely low. This suggests that more patrons are shifting towards using ebooks as their preferred format for borrowing materials from the library. Furthermore, we can also see that there is a noticeable spike in ebook checkouts in the year 2020. This may be due to the COVID-19 pandemic and the increased interest in digital materials as a result of library closures and social distancing measures. Overall, the line chart provides a clear and concise way of visualizing trends in borrowing behavior over time, and can be a useful tool for libraries to make informed decisions about their collections and services.<br>
+    
 ### Second Trends Over Time Chart
 
-``````{r, echo = FALSE, code = readLines("Line_Chart2.R")}
+```{r, echo=FALSE, message = FALSE}
+source("Line_Chart2.r")
+library_checkout_line_chart2
 ```
-
+<br>
+  **Description**<br>
+    The second time chart compares the number of checkouts for physical items (Horizon) and digital items (OverDrive) from Seattle Public Library between 2017 and 2023. This does not just include books but all items including movies, audiobooks, magizines, music, etc. It shows that physical checkouts decreased steadily while digital checkouts increased significantly, suggesting a shift in user preferences towards digital items. This trend may be due to increased availability and convenience of digital items, changing demographics, and the digitalization of society. The chart provides valuable insights into changing library usage trends. I included the second time chart to visualize borrowing behavior trends over time. By identifying patterns and trends in borrowing behavior, libraries can make informed decisions about future acquisitions. The chart shows a steady decrease in physical checkouts and a corresponding increase in digital checkouts, with a significant spike in 2020, likely due to COVID-19. The second time chart provides a useful tool for libraries to make informed decisions about their collections and services.<br>
+    
 ### Your Choice
 
-``````{r, echo = FALSE, code = readLines("Bar_Chart.R")}
+```{r, echo=FALSE, message = FALSE}
+source("Bar_Chart.r")
+library_checkout_bar_chart
 ```
-
-
+<br>
+  **Description**<br>
+    The barchart compares the number of physical checkouts for fiction books and all other genres combined from Seattle Public Library between 2017 and 2023. This chart was included to provide insight into the borrowing behavior of patrons and identify any trends or patterns that may emerge. The chart shows that the number of checkouts for fiction books remained relatively stable throughout the years in relation to the checkouts for all other genres combined. The pattern that emerged from the chart suggests that patrons are more likely to borrow a book from another genre than fiction(except in 2017) however ficiton always has about a 3:4 ration with the other genres which is extremely high. This may be due to the popularity of fiction as a form of entertainment or escapism. However, it is also possible that the library may need to reconsider the acquisition of materials in other genres to better meet the changing interests and needs of patrons. Overall, the barchart provides valuable insights into the borrowing behavior of patrons and can be used to inform future collection development decisions.
