@@ -5,7 +5,7 @@ output: html_document
 
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+The dataset we are analyzing is the library checkout data from the Seattle Public Library (SPL) from 2017 to 2023. The dataset contains information about the items that have been checked out from the library, including the checkout date, checkout type (e.g., OverDrive, Hoopla), and material type (e.g., book, audiobook). Our goal is to analyze the data to identify any trends in the type of materials being checked out and the checkout types that are most popular. We are primarily interested in analyzing the trends in the checkout types (OverDrive, Hoopla) and the material types (books, audiobooks) over time. We want to identify any changes in the popularity of these checkout types or materials over the years. We are also interested in analyzing the total number of checkouts for each checkout type and material type to determine which items are the most popular among library users.
 
 ### Summary Information
 
@@ -13,74 +13,52 @@ Write a summary paragraph of findings that includes the 5 values calculated from
 
 These will likely be calculated using your DPLYR skills, answering questions such as:
 
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
+- **What is the average number of checkouts for each item?**
+- **What is the month or year with the most/least checkouts for a book that you're interested in?**
+- **What is the month or year with the most/least checkouts for ebooks?**
+- **How has the number of print book checkouts changed over time?**
 
 Feel free to calculate and report values that you find relevant.
 
 ### The Dataset
 
-- Who collected/published the data?  
-- What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated?  
-- Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
-- What are possible limitations or problems with this data?   (at least 200 words)
+- **Who collected/published the data?**
+  The Seattle Public Library collected and published the dataset used in this project
+- **What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?**<br>
+  The paramaeters are the following:<br>
+    UsageClass: This determines if the data entry for a checkout was a physical or digital item<br>
+    CheckoutType: This is the system on which the item was checked out on<br>
+    MaterialType: This is the type of item being checked out (ex. book, ebook, magizine, etc)<br>
+    CheckoutYear: The year the item was checked out<br>
+    CheckoutMonth: The month the item was checked out<br>
+    Checkouts: The number of checkouts that specfic item entry had<br>
+    Title: Title of the item being checked out<br>
+    Creator: Author of the item<br>
+    Subjects: Genre of the item<br>
+    Publisher: Publisher of the item<br>
+    PublicationYear: Year the item was published<br>
+- **How was the data collected or generated?**  
+  
+- **Why was the data collected?**  
+  To keep track of a monthly count of Seattle Public Library checkouts by title for physical and electronic     items
+- **What, if any, ethical questions do you need to consider when working with this data?**  
 
+- **What are possible limitations or problems with this data?(at least 200 words)**
+  There are many limiations/problems with this dataset. 
 
 ### First Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+``````{r, echo = FALSE, warning = FALSE, code = readLines("Line_Chart.R")}
 ```
 
 ### Second Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+``````{r, echo = FALSE, code = readLines("Line_Chart2.R")}
 ```
 
 ### Your Choice
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
-
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+``````{r, echo = FALSE, code = readLines("Bar_Chart.R")}
 ```
 
 
