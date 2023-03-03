@@ -23,14 +23,22 @@ most_popular_ebook_month <- ebook_checkouts_by_month$CheckoutMonth[1]
 least_popular_ebook_month <- ebook_checkouts_by_month$CheckoutMonth[nrow(ebook_checkouts_by_month)]
 
 # Calculate how the number of print book checkouts has changed over time
-print_checkouts_over_time <- libraryData %>%
+physical_checkouts_over_time <- libraryData %>%
   filter(MaterialType == "BOOK" & CheckoutType != "Hoopla" & CheckoutType != "OverDrive") %>%
-  group_by(CheckoutYear, CheckoutMonth) %>%
+  group_by(CheckoutYear) %>%
   summarise(total_checkouts = sum(Checkouts)) %>%
-  mutate(timeline = as.Date(paste0(CheckoutYear, "-", CheckoutMonth, "-01")))
+  filter(CheckoutYear %in% c(2017, 2017))
 
-# Calculate the total number of checkouts by checkout type and material type
-checkouts_by_type <- libraryData %>%
-  group_by(CheckoutType, MaterialType) %>%
-  summarise(total_checkouts = sum(Checkouts))
+# Calculate the difference between 2017 and 2022
+physical_checkouts_difference <- diff(physical_checkouts_over_time$total_checkouts)
+
+# Calculate the most common material tyoe
+checkouts_by_material_type <- libraryData %>%
+  group_by(MaterialType) %>%
+  summarise(total_checkouts = sum(Checkouts)) %>%
+  arrange(desc(total_checkouts))
+
+
+most_checkout_material <- checkouts_by_material_type$MaterialType[1]
+most_checkout_material_checkouts <- checkouts_by_material_type$total_checkouts[1]
 
