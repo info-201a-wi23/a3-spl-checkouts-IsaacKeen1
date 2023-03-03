@@ -39,4 +39,5 @@ library_checkout_line_chart <- ggplot() +
   scale_x_date(date_breaks = "1 year", date_labels = "%y") +
   scale_y_continuous(labels = function(x) format(x/100000, big.mark = ",", scientific = FALSE))
   scale_color_manual(name = "Material Type", values = c("red", "blue"))
+  
 library_checkout_line_chart
