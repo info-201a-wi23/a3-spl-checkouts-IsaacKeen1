@@ -26,5 +26,6 @@ library_checkout_bar_chart <- ggplot(data = checkouts_by_genre, aes(x = Checkout
   ) +
   scale_x_continuous(breaks = seq(2017, 2023, 1), labels = c("17", "18", "19", "20", "21", "22", "23"))
   scale_fill_manual(values = c("Fiction" = "red", "All Other Genres" = "blue"))
+  
 library_checkout_bar_chart
 
