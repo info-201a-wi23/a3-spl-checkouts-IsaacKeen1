@@ -1,8 +1,8 @@
 libraryData <- read.csv("/Users/isaackeen/Documents/Data/2017-2023-10-Checkouts-SPL-Data.csv")
-library("ggplot2")
-library("dplyr")
-library("tidyr")
-library("scales")
+invisible(library("ggplot2"))
+invisible(library("dplyr"))
+invisible(library("tidyr"))
+invisible(library("scales"))
 
 
 ebook_data <- libraryData %>%
