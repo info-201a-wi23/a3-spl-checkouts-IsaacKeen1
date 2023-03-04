@@ -21,6 +21,8 @@ cat(paste("Most Popular Month For Checkouts For The Great Gatsby:", most_popular
 cat(paste("Least Popular Month For Checkouts For The Great Gatsby:", least_popular_month, "\n"))
 cat(paste("Most Popular Month For Checkouts For Ebooks:", most_popular_ebook_month, "\n"))
 cat(paste("Least Popular Month For Checkouts For Ebooks:", least_popular_ebook_month, "\n"))
+cat(paste("Most Checked Out Material:", most_checkout_material, "\n"))
+cat(paste("How Many Checkouts That Material Had:", most_checkout_material_checkouts, "\n"))
 ```
 
 
