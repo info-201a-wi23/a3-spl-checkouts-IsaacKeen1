@@ -1,6 +1,6 @@
 libraryData <- read.csv("/Users/isaackeen/Documents/Data/2017-2023-10-Checkouts-SPL-Data.csv")
 library(dplyr)
-
+## FINAl
 # Calculate the average number of checkouts for each item
 overall_avg_checkouts <- mean(libraryData$Checkouts)
 # Calculate the month or year with the most/least checkouts for a book that you're interested in
